@@ -21,17 +21,16 @@ body {
   text-align: center;
 }
 
-.header,
-.header-title {
-  margin-bottom: 3rem;
-}
-
-.header-title,
-.loading {
+h1 {
   font-family: "SEGA LOGO FONT";
   font-size: 2rem;
   font-weight: 200;
   color: #0ccac4;
+}
+
+.header,
+.header-title {
+  margin-bottom: 3rem;
 }
 
 .card-list {
