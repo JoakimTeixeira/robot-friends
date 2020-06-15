@@ -27,15 +27,15 @@ class App extends Component {
 
     return (
       <Fragment>
-        <div className="tc">
+        <main className="main">
           <header>
-            <h1 className="f1">RobotFriends</h1>
+            <h1 className="header-title">RobotFriends</h1>
             <SearchBox searchChange={this.onSearchChange} />
           </header>
-          <section>
+          <section className="card-list">
             <CardList robots={filteredRobots} />
           </section>
-        </div>
+        </main>
       </Fragment>
     );
   }

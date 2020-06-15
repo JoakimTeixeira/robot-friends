@@ -1,0 +1,20 @@
+.search {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-title {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  color: #c5eeff;
+}
+
+.search-input {
+  padding: 0.8em;
+  outline: none;
+  border: 3px solid #0ccac4;
+  background: #c5eeff;
+  width: 220px;
+}

@@ -1,13 +1,18 @@
 import React from "react";
+import "./SearchBox.css";
 
 const SearchBox = ({ searchChange }) => {
   return (
-    <div className="flex items-center justify-center pa2 mb4 lightest-blue">
-      <h2>Search Robots: </h2>
+    <div className="search">
+      <label className="search-title" for="search">
+        <h2>Search robot:</h2>
+      </label>
       <input
-        className="ml3 pa3 ba b--green bg-lightest-blue outline-0"
+        id="search"
+        name="search"
+        className="search-input"
         type="search"
-        placeholder="Insert robot name"
+        placeholder="Insert name"
         onChange={searchChange}
       ></input>
     </div>
