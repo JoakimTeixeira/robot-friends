@@ -35,7 +35,7 @@ class App extends Component {
       return (
         <Fragment>
           <main className="main">
-            <header>
+            <header className="header">
               <h1 className="header-title">RobotFriends</h1>
               <SearchBox searchChange={this.onSearchChange} />
             </header>

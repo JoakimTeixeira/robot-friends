@@ -17,14 +17,19 @@ body {
 }
 
 .main {
-  margin: 2rem 4rem;
+  padding: 2rem 1rem;
   text-align: center;
+}
+
+.header,
+.header-title {
+  margin-bottom: 3rem;
 }
 
 .header-title,
 .loading {
   font-family: "SEGA LOGO FONT";
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 200;
   color: #0ccac4;
 }
@@ -41,4 +46,22 @@ body {
   height: 100vh;
   align-content: center;
   justify-items: center;
+}
+
+@media all and (min-width: 450px) {
+  .header-title,
+  .loading {
+    font-size: 2.8rem;
+  }
+}
+
+@media all and (min-width: 600px) {
+  .main {
+    padding: 2rem 4rem;
+  }
+
+  .header-title,
+  .loading {
+    font-size: 3.5rem;
+  }
 }
