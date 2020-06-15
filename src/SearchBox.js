@@ -5,7 +5,7 @@ const SearchBox = ({ searchChange }) => {
   return (
     <div className="search">
       <label className="search-title" for="search">
-        <h2>Search robot:</h2>
+        <h2>Search robots:</h2>
       </label>
       <input
         id="search"
