@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
+// Robots is destructed to don't have to import "props" keyword and later call it as props.robots
 const CardList = ({ robots }) => {
   return (
     <div>
