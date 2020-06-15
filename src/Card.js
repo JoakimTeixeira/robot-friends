@@ -10,7 +10,7 @@ const Card = ({ id, name, email }) => {
           className="pa3"
         />
         <div className="pa2">
-          <h1 className="f5">{name}</h1>
+          <h2 className="f5">{name}</h2>
           <p className="measure mt2 mid-gray">{email}</p>
         </div>
       </article>
