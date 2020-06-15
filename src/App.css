@@ -21,7 +21,8 @@ body {
   text-align: center;
 }
 
-.header-title {
+.header-title,
+.loading {
   font-family: "SEGA LOGO FONT";
   font-size: 3.5rem;
   font-weight: 200;
@@ -32,4 +33,12 @@ body {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+.loading {
+  display: grid;
+  margin: 0;
+  height: 100vh;
+  align-content: center;
+  justify-items: center;
 }
