@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Card from "./Card";
 
-// Robots is destructed to don't have to import "props" keyword and later call it as props.robots
+// Robots is destructed to not have to import "props" keyword and later call it as props.robots
 const CardList = ({ robots }) => {
   return (
     <Fragment>
