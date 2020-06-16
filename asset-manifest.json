@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/RobotFriends/static/css/main.6532649e.chunk.css",
-    "main.js": "/RobotFriends/static/js/main.6f19924c.chunk.js",
-    "main.js.map": "/RobotFriends/static/js/main.6f19924c.chunk.js.map",
+    "main.js": "/RobotFriends/static/js/main.dc21637d.chunk.js",
+    "main.js.map": "/RobotFriends/static/js/main.dc21637d.chunk.js.map",
     "runtime-main.js": "/RobotFriends/static/js/runtime-main.b71dee6b.js",
     "runtime-main.js.map": "/RobotFriends/static/js/runtime-main.b71dee6b.js.map",
     "static/js/2.a8a83e8f.chunk.js": "/RobotFriends/static/js/2.a8a83e8f.chunk.js",
     "static/js/2.a8a83e8f.chunk.js.map": "/RobotFriends/static/js/2.a8a83e8f.chunk.js.map",
     "index.html": "/RobotFriends/index.html",
-    "precache-manifest.7bd0317d80f8c627a09c54931afbb375.js": "/RobotFriends/precache-manifest.7bd0317d80f8c627a09c54931afbb375.js",
+    "precache-manifest.c209883deae66babe2c64b2a879a24c2.js": "/RobotFriends/precache-manifest.c209883deae66babe2c64b2a879a24c2.js",
     "service-worker.js": "/RobotFriends/service-worker.js",
     "static/css/main.6532649e.chunk.css.map": "/RobotFriends/static/css/main.6532649e.chunk.css.map",
     "static/js/2.a8a83e8f.chunk.js.LICENSE.txt": "/RobotFriends/static/js/2.a8a83e8f.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.b71dee6b.js",
     "static/js/2.a8a83e8f.chunk.js",
     "static/css/main.6532649e.chunk.css",
-    "static/js/main.6f19924c.chunk.js"
+    "static/js/main.dc21637d.chunk.js"
   ]
 }
