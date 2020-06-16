@@ -21,7 +21,8 @@ body {
   text-align: center;
 }
 
-h1 {
+.header-title,
+.loading {
   font-family: "SEGA LOGO FONT";
   font-size: 2rem;
   font-weight: 200;

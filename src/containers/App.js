@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
+import MessageError from "../components/MessageError";
 import "./App.css";
 
 class App extends Component {
@@ -9,13 +10,38 @@ class App extends Component {
     this.state = {
       robots: [],
       searchField: "",
+      error: false,
     };
   }
 
+  timeoutPromise(ms, promise) {
+    return new Promise((resolve, reject) => {
+      const timeoutId = setTimeout(() => {
+        reject(new Error());
+      }, ms);
+      promise.then(
+        res => {
+          clearTimeout(timeoutId);
+          resolve(res);
+        },
+        err => {
+          clearTimeout(timeoutId);
+          reject(err);
+        }
+      );
+    });
+  }
+
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(users => this.setState({ robots: users }));
+    this.timeoutPromise(
+      5000,
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(users => this.setState({ robots: users }))
+    ).catch(err => {
+      console.log("HTTP request error", err);
+      this.setState({ error: true });
+    });
   }
 
   onSearchChange = event => {
@@ -23,7 +49,7 @@ class App extends Component {
   };
 
   render() {
-    const { robots, searchField } = this.state;
+    const { robots, searchField, error } = this.state;
 
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
@@ -31,21 +57,25 @@ class App extends Component {
 
     if (robots.length === 0) {
       return <h1 className="loading">Loading...</h1>;
-    } else {
-      return (
-        <Fragment>
-          <main className="main">
-            <header className="header">
-              <h1 className="header-title">RobotFriends</h1>
-              <SearchBox searchChange={this.onSearchChange} />
-            </header>
-            <section className="card-list">
-              <CardList robots={filteredRobots} />
-            </section>
-          </main>
-        </Fragment>
-      );
     }
+
+    if (error) {
+      return <MessageError />;
+    }
+
+    return (
+      <Fragment>
+        <main className="main">
+          <header className="header">
+            <h1 className="header-title">RobotFriends</h1>
+            <SearchBox searchChange={this.onSearchChange} />
+          </header>
+          <section className="card-list">
+            <CardList robots={filteredRobots} />
+          </section>
+        </main>
+      </Fragment>
+    );
   }
 }
 

@@ -1,0 +1,19 @@
+.error {
+  display: grid;
+  height: 100vh;
+  align-content: center;
+  justify-items: center;
+}
+
+.error-title {
+  font-family: "SEGA LOGO FONT";
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #0ccac4;
+}
+
+.error-description {
+  font-size: 1.5rem;
+  color: #c5eeff;
+}
