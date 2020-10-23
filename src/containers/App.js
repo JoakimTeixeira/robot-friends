@@ -1,12 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSearchField } from '../actions'
 import CardList from '../components/CardList'
 import SearchBox from '../components/SearchBox'
 import MessageError from '../components/MessageError'
 import './App.css'
 
 const App = () => {
+	const dispatch = useDispatch()
+	const { searchField } = useSelector((state) => state)
 	const [robots, setRobots] = useState([])
-	const [searchField, setSearchField] = useState('')
 	const [error, setError] = useState(false)
 
 	const timeoutPromise = (ms, promise) => {
@@ -41,10 +44,8 @@ const App = () => {
 	}, [])
 
 	const onSearchChange = (event) => {
-		setSearchField(event.target.value)
+		dispatch(setSearchField(event.target.value))
 	}
-
-	console.log(robots, searchField, error)
 
 	const filteredRobots = robots.filter((robot) => {
 		return robot.name.toLowerCase().includes(searchField.toLowerCase())
