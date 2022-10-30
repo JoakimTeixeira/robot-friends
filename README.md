@@ -6,6 +6,8 @@ Your favorite application to find robots!
 
 ## To-do
 
+- [X] Implement responsiveness
+- [X] Implement loading bar
 - [ ] Refactor component states for better atomicity
 - [ ] Implement typescript
 - [ ] Create new user interface
