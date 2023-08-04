@@ -5,8 +5,8 @@
   "type": "module",
   "homepage": "https://JoakimTeixeira.github.io/robot-friends",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist",
     "start": "vite",
     "build": "vite build",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
