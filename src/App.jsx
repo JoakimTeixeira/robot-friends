@@ -1,12 +1,8 @@
 import { useEffect } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import {
-  requestRobotsFailed,
-  requestRobotsPending,
-  requestRobotsSuccess,
-  setSearchField,
-} from "./actions";
+import { requestRobotsFailed, requestRobotsPending, requestRobotsSuccess, setSearchField } from "./actions";
 import { CardList, MessageError, SearchBox } from "./components";
 
 const App = () => {
@@ -18,9 +14,7 @@ const App = () => {
     dispatch(requestRobotsPending());
 
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-      );
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
       if (response.ok) {
         const data = await response.json();
@@ -52,7 +46,7 @@ const App = () => {
   }
 
   if (status === "failed" || error) {
-    return <MessageError />;
+    return <MessageError error="The API seems busy..." />;
   }
 
   return (
@@ -62,9 +56,11 @@ const App = () => {
           <h1 className="header-title">RobotFriends</h1>
           <SearchBox searchChange={onSearchChange} />
         </header>
-        <section className="card-list">
-          <CardList robots={filteredRobots} />
-        </section>
+        <ErrorBoundary fallback={<MessageError />}>
+          <section className="card-list">
+            <CardList robots={filteredRobots} />
+          </section>
+        </ErrorBoundary>
       </main>
     </>
   );

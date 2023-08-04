@@ -1,6 +1,6 @@
 .error {
   display: grid;
-  height: 100vh;
+  height: calc(100vh - 175.81px - 10rem);
   align-content: center;
   justify-items: center;
 }
