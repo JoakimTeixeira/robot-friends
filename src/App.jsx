@@ -14,22 +14,22 @@ const App = () => {
 	const { searchField } = useSelector((state) => state.searchRobots)
 	const { robots, status, error } = useSelector((state) => state.requestRobots)
 
-	const fetchRobots = () => (dispatch) => {
-		dispatch(requestRobotsPending())
+	const fetchRobots = () => async (dispatch) => {
+		dispatch(requestRobotsPending());
 
-		fetch('https://jsonplaceholder.typicode.com/users')
-			.then((response) => {
-				if (response.status >= 200 && response.status <= 299) {
-					return response.json()
-				} else {
-					throw Error(response.statusText)
-				}
-			})
-			.then((data) => {
-				dispatch(requestRobotsSuccess(data))
-			})
-			.catch((error) => dispatch(requestRobotsFailed(error)))
-	}
+		try {
+			const response = await fetch("https://jsonplaceholder.typicode.com/users");
+			
+			if (response.ok) {
+				const data = await response.json();
+				dispatch(requestRobotsSuccess(data));
+			} else {
+				throw new Error(response.statusText);
+			}
+		} catch (error) {
+			dispatch(requestRobotsFailed(error));
+		}
+	};
 
 	const onSearchChange = (event) => {
 		dispatch(setSearchField(event.target.value))
