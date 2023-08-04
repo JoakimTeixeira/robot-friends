@@ -1,71 +1,73 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
 import {
-	requestRobotsFailed,
-	requestRobotsPending,
-	requestRobotsSuccess,
-	setSearchField,
-} from './actions';
+  requestRobotsFailed,
+  requestRobotsPending,
+  requestRobotsSuccess,
+  setSearchField,
+} from "./actions";
 import { CardList, MessageError, SearchBox } from "./components";
 
 const App = () => {
-	const dispatch = useDispatch()
-	const { searchField } = useSelector((state) => state.searchRobots)
-	const { robots, status, error } = useSelector((state) => state.requestRobots)
+  const dispatch = useDispatch();
+  const { searchField } = useSelector((state) => state.searchRobots);
+  const { robots, status, error } = useSelector((state) => state.requestRobots);
 
-	const fetchRobots = () => async (dispatch) => {
-		dispatch(requestRobotsPending());
+  const fetchRobots = () => async (dispatch) => {
+    dispatch(requestRobotsPending());
 
-		try {
-			const response = await fetch("https://jsonplaceholder.typicode.com/users");
-			
-			if (response.ok) {
-				const data = await response.json();
-				dispatch(requestRobotsSuccess(data));
-			} else {
-				throw new Error(response.statusText);
-			}
-		} catch (error) {
-			dispatch(requestRobotsFailed(error));
-		}
-	};
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users",
+      );
 
-	const onSearchChange = (event) => {
-		dispatch(setSearchField(event.target.value))
-	}
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(requestRobotsSuccess(data));
+      } else {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      dispatch(requestRobotsFailed(error));
+    }
+  };
 
-	const filteredRobots = robots.filter((robot) => {
-		return robot.name.toLowerCase().includes(searchField.toLowerCase())
-	})
+  const onSearchChange = (event) => {
+    dispatch(setSearchField(event.target.value));
+  };
 
-	useEffect(() => {
-		if (status === 'idle') {
-			dispatch(fetchRobots())
-		}
-	}, [status, dispatch])
+  const filteredRobots = robots.filter((robot) => {
+    return robot.name.toLowerCase().includes(searchField.toLowerCase());
+  });
 
-	if (status === 'loading') {
-		return <h1 className="loading">Loading...</h1>
-	}
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchRobots());
+    }
+  }, [status, dispatch]);
 
-	if (status === 'failed' || error) {
-		return <MessageError />
-	}
+  if (status === "loading") {
+    return <h1 className="loading">Loading...</h1>;
+  }
 
-	return (
-		<>
-			<main className="main">
-				<header className="header">
-					<h1 className="header-title">RobotFriends</h1>
-					<SearchBox searchChange={onSearchChange} />
-				</header>
-				<section className="card-list">
-					<CardList robots={filteredRobots} />
-				</section>
-			</main>
-		</>
-	)
-}
+  if (status === "failed" || error) {
+    return <MessageError />;
+  }
 
-export default App
+  return (
+    <>
+      <main className="main">
+        <header className="header">
+          <h1 className="header-title">RobotFriends</h1>
+          <SearchBox searchChange={onSearchChange} />
+        </header>
+        <section className="card-list">
+          <CardList robots={filteredRobots} />
+        </section>
+      </main>
+    </>
+  );
+};
+
+export default App;
