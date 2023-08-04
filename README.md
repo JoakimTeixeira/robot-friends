@@ -16,5 +16,5 @@ Your favorite application to find robots!
 
 To get started, fork the repository and then run the following commands:
 
-    npm install
-    npm run start
+    yarn install
+    yarn run start
