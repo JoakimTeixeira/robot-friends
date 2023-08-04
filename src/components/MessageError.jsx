@@ -1,4 +1,3 @@
-import React from 'react'
 import './MessageError.css'
 
 const ApiError = ({ error }) => {

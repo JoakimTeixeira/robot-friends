@@ -2,7 +2,7 @@
   font-family: "SEGA LOGO FONT";
   font-style: normal;
   font-weight: normal;
-  src: local("SEGA LOGO FONT"), url("../fonts/SEGA.woff") format("woff");
+  src: local("SEGA LOGO FONT"), url("./fonts/SEGA.woff") format("woff");
 }
 
 *,
@@ -12,7 +12,8 @@
 }
 
 body {
-  margin: 0 auto;
+  margin: 0 auto !important;
+  width: 100%;
   max-width: 1200px;
 }
 

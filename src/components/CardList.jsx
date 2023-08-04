@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import Card from "./Card";
 
 // Robots is destructed to not have to import "props" keyword and later call it as props.robots

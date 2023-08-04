@@ -1,15 +1,15 @@
-import React, { Fragment, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import './App.css'
 import {
-	setSearchField,
+	requestRobotsFailed,
 	requestRobotsPending,
 	requestRobotsSuccess,
-	requestRobotsFailed,
-} from '../actions'
-import CardList from '../components/CardList'
-import SearchBox from '../components/SearchBox'
-import MessageError from '../components/MessageError'
-import './App.css'
+	setSearchField,
+} from './actions'
+import CardList from './components/CardList'
+import MessageError from './components/MessageError'
+import SearchBox from './components/SearchBox'
 
 const App = () => {
 	const dispatch = useDispatch()
@@ -56,7 +56,7 @@ const App = () => {
 	}
 
 	return (
-		<Fragment>
+		<>
 			<main className="main">
 				<header className="header">
 					<h1 className="header-title">RobotFriends</h1>
@@ -66,7 +66,7 @@ const App = () => {
 					<CardList robots={filteredRobots} />
 				</section>
 			</main>
-		</Fragment>
+		</>
 	)
 }
 
