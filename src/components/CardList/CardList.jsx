@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import "./Card.css";
+import "./CardList.css";
 
 const Card = ({ id, name, email }) => {
   return (
@@ -19,4 +19,16 @@ const Card = ({ id, name, email }) => {
   );
 };
 
-export default Card;
+const CardList = ({ robots }) => {
+  return (
+    <>
+      {robots.map((user) => {
+        let { id, name, email } = user;
+
+        return <Card key={id} id={id} name={name} email={email} />;
+      })}
+    </>
+  );
+};
+
+export default CardList;

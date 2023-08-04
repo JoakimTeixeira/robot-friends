@@ -1,15 +1,13 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import './App.css'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
 import {
 	requestRobotsFailed,
 	requestRobotsPending,
 	requestRobotsSuccess,
 	setSearchField,
-} from './actions'
-import CardList from './components/CardList'
-import MessageError from './components/MessageError'
-import SearchBox from './components/SearchBox'
+} from './actions';
+import { CardList, MessageError, SearchBox } from "./components";
 
 const App = () => {
 	const dispatch = useDispatch()
