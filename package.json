@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d build",
     "start": "vite",
     "build": "vite build",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -33,7 +34,6 @@
     ]
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react-swc": "^3.3.2",
@@ -41,6 +41,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.1",
+    "redux-logger": "^3.0.6",
     "vite": "^4.4.5"
   }
 }
