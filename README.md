@@ -14,7 +14,7 @@ Your favorite application to find robots!
 
 ## Running the Project
 
-To get started, fork the repository and then run the following commands:
+To get started, fork the repository, clone it, and then run the following commands:
 
     yarn install
     yarn run start
